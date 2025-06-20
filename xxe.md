@@ -41,6 +41,6 @@ Basic file read looks like this.
 <!ENTITY file SYSTEM "file:///etc/passwd"> ]>
 <any>
 <title>test</title>
-  <textoutput>&file:</textoutput>
+  <textoutput>&file;</textoutput>
 </any>
 ```
