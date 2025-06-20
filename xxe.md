@@ -16,7 +16,7 @@ If you have an XML POST that looks like this.
                 </bugreport>                                                                                        
 ```
 
-For a file read injection we can change it to look something like this. `!DOCTYPE` - declares a set of rules about what can appear in the xml. `!ENTITY` - is similar to defining a variable that you can call on later in the file. `SYSTEM` - tells the XML parser to retrieve the entity from an external source allowing for XXE.
+For a file read injection we can change it to look something like this. `!DOCTYPE` - declares a set of rules about what can appear in the xml. `!ENTITY` - is similar to defining a variable that you can call on later in the file. `SYSTEM` - tells the XML parser to retrieve the entity from an external source allowing for XXE. Lastly, we can input the variable we defined earlier with `!ENTITY` to a textfield. It would look something like this. `<text>&variable;<\text>`
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
